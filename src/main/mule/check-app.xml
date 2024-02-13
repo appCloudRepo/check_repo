@@ -4,7 +4,11 @@
 	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="19ba8862-2ff9-475e-8091-f14cdf62b37e" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
 	<flow name="check-appFlow" doc:id="eda46ba6-80a2-4abb-9a82-aae4077afac5" >
-		<http:listener doc:name="Listener" doc:id="3e8e63c1-cd5d-4e55-bbc5-2424c0fc72b1" />
+		<http:listener doc:name="Listener" doc:id="3e8e63c1-cd5d-4e55-bbc5-2424c0fc72b1" config-ref="HTTP_Listener_config" path="/check"/>
+		<logger level="INFO" doc:name="Logger" doc:id="d110b7bf-da33-4ae2-ad1c-d4182759507e" />
 	</flow>
 </mule>
